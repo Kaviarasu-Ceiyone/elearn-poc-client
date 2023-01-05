@@ -4,16 +4,16 @@ import CourseCard from "../components/cards/CourseCard";
 
 // * Function for Server render course for SEO
 
-export async function getServerSideProps() {
-  const { data } = await axios.get(`http://localhost:8000/api/courses`);
+// export async function getServerSideProps() {
+//   const { data } = await axios.get(`http://localhost:8000/api/courses`);
 
-  console.log(process.env.courses);
-  return {
-    props: {
-      courses: data,
-    },
-  };
-}
+//   console.log(process.env.courses);
+//   return {
+//     props: {
+//       courses: data,
+//     },
+//   };
+// }
 
 const Index = () => {
   // const [courses, setCourses] = useState([]);
