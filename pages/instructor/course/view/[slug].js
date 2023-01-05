@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import InstructorRoute from "../../../../components/routes/InstructorRoute";
+import InstructorRoute from "../../../../components/routes/InstructorRoute.js";
 import axios from "axios";
 import { Avatar, Button, Modal, Tooltip, List } from "antd";
 import {

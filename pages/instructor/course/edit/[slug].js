@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import InstructorRoute from "../../../../components/routes/InstructorRoute";
 import { Select, Button, Modal } from "antd";
 import { DeleteOutlined, SaveOutlined } from "@ant-design/icons";
-import CourseCreateForm from "../../../../components/forms/CourseCreateForm";
+import CourseCreateForm from "../../../../components/forms/CourseCreateForm.js";
 import Resizer from "react-image-file-resizer";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { Avatar, List } from "antd";
-import UpdateLessonForm from "../../../../components/forms/updateLessonForm";
+import UpdateLessonForm from "../../../../components/forms/UpdateLessonForm.js";
 
 const { Item } = List;
 
