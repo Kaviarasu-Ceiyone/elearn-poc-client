@@ -33,7 +33,7 @@ const SingleCourse = ({ course }) => {
   const checkEnrollment = async () => {
     const userId = user._id;
     const { data } = await axios.get(
-      `http://localhost:8000/api/check-enrollment/${course._id}`,
+      `https://elearn-server-wqf0.onrender.com/api/check-enrollment/${course._id}`,
       {
         headers: { UserId: userId },
       }
@@ -57,7 +57,7 @@ const SingleCourse = ({ course }) => {
       setLoading(true);
 
       const { data } = await axios.post(
-        `http://localhost:8000/api/free-enrollment/${course._id}`,
+        `https://elearn-server-wqf0.onrender.com/api/free-enrollment/${course._id}`,
         {
           user,
         }
@@ -111,7 +111,7 @@ const SingleCourse = ({ course }) => {
 
 export async function getServerSideProps({ query }) {
   const { data } = await axios.get(
-    `http://localhost:8000/api/course/${query.slug}`
+    `https://elearn-server-wqf0.onrender.com/api/course/${query.slug}`
   );
 
   return {

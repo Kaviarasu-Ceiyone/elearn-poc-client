@@ -32,10 +32,13 @@ const Login = () => {
     // console.table({ name, email, password });
     try {
       setLoading(true);
-      const response = await axios.post(`http://localhost:8000/api/login`, {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `https://elearn-server-wqf0.onrender.com/api/login`,
+        {
+          email,
+          password,
+        }
+      );
 
       const { data } = response;
 

@@ -15,7 +15,7 @@
 //       server.use(
 //         "/api",
 //         createProxyMiddleware({
-//           target: "http://localhost:8000",
+//           target: "https://elearn-server-wqf0.onrender.com",
 //           changeOrigin: true,
 //         })
 //       );
@@ -27,7 +27,7 @@
 
 //     server.listen(3000, (err) => {
 //       if (err) throw err;
-//       console.log("> Ready on http://localhost:8000");
+//       console.log("> Ready on https://elearn-server-wqf0.onrender.com");
 //     });
 //   })
 //   .catch((err) => {

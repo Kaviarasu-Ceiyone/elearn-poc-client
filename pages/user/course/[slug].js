@@ -37,7 +37,7 @@ const SingleCourse = () => {
   const loadCourse = async () => {
     const userId = user._id;
     const { data } = await axios.get(
-      `http://localhost:8000/api/user/course/${slug}`,
+      `https://elearn-server-wqf0.onrender.com/api/user/course/${slug}`,
       {
         headers: { UserId: userId },
       }

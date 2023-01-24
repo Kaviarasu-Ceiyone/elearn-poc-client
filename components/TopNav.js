@@ -33,7 +33,9 @@ const TopNav = () => {
   const logout = async () => {
     dispatch({ type: "LOGOUT" });
     window.localStorage.removeItem("user");
-    const { data } = await axios.get("http://localhost:8000/api/logout");
+    const { data } = await axios.get(
+      "https://elearn-server-wqf0.onrender.com/api/logout"
+    );
     toast(data.message);
     router.push("/login");
   };

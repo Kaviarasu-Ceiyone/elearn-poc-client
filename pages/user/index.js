@@ -22,7 +22,7 @@ import { SyncOutlined, PlayCircleOutlined } from "@ant-design/icons";
 //     try {
 //       setLoading(true);
 //       const { data } = await axios.get(
-//         "http://localhost:8000/api/user-courses"
+//         "https://elearn-server-wqf0.onrender.com/api/user-courses"
 //       );
 //       console.log(data);
 //       setCourses(data);
@@ -105,7 +105,7 @@ const UserIndex = () => {
     // const token = JSON.parse(window.localStorage.getItem("token"));
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/api/current-user"
+        "https://elearn-server-wqf0.onrender.com/api/current-user"
       );
       console.log(data);
       setHidden(false);

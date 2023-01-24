@@ -23,7 +23,7 @@ const InstructorRoute = ({ children }) => {
   const fetchInstructor = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/api/current-instructor"
+        "https://elearn-server-wqf0.onrender.com/api/current-instructor"
       );
       //   console.log(data);
       if (data.ok) setOk(true);
