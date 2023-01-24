@@ -89,13 +89,13 @@ const SingleCourse = () => {
               </div>
 
               <div className="wrapper">
-                {/* <ReactPlayer
+                <ReactPlayer
                   className="player"
                   url={course.lessons[clicked].video.Location}
                   width="600px"
                   height="500px"
                   controls
-                /> */}
+                />
               </div>
               <ReactMarkdown
                 source={course.lessons[clicked].content}
