@@ -13,7 +13,9 @@ const InstructorIndex = () => {
   }, []);
 
   const loadCourses = async () => {
-    const { data } = await axios.get("/api/instructor-courses");
+    const { data } = await axios.get(
+      "https://elearn-server-wqf0.onrender.com/api/instructor-courses"
+    );
     setCourses(data);
   };
 

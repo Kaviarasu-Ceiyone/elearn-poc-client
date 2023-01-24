@@ -33,7 +33,9 @@ const TopNav = () => {
   const logout = async () => {
     dispatch({ type: "LOGOUT" });
     window.localStorage.removeItem("user");
-    const { data } = await axios.get("/api/logout");
+    const { data } = await axios.get(
+      "https://elearn-server-wqf0.onrender.com/api/logout"
+    );
     toast(data.message);
     router.push("/login");
   };
@@ -50,7 +52,7 @@ const TopNav = () => {
         </Link>
       </Item>
 
-      {user && user.role && user.role.includes("Instructor") ? (
+      {/* {user && user.role && user.role.includes("Instructor") ? (
         <Item
           key="/instructor/course/create"
           onClick={(e) => setCurrent(e.key)}
@@ -76,7 +78,7 @@ const TopNav = () => {
             Become Instructor
           </Link>
         </Item>
-      )}
+      )} */}
 
       {user === null && (
         <>

@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { SyncOutlined } from "@ant-design/icons";
+import { Context } from "../../context";
 
 const StudentRoute = ({ children }) => {
   //state
@@ -11,17 +12,23 @@ const StudentRoute = ({ children }) => {
   //router
   const router = useRouter();
 
-  //   const {
-  //     state: { user },
-  //   } = useContext(Context);
+  const {
+    state: { user },
+  } = useContext(Context);
 
   useEffect(() => {
     fetchUser();
   }, []);
 
   const fetchUser = async () => {
+    const userId = user._id;
     try {
-      const { data } = await axios.get("/api/current-user");
+      const { data } = await axios.get(
+        "https://elearn-server-wqf0.onrender.com/api/current-user",
+        {
+          headers: { UserId: userId },
+        }
+      );
       //   console.log(data);
       if (data.ok) setOk(true);
     } catch (error) {

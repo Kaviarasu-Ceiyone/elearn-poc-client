@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect, useState, createElement } from "react";
+import { useEffect, useState, createElement, useContext } from "react";
 import axios from "axios";
 import StudentRoute from "../../../components/routes/StudentRoute";
 import { Button, Menu, Avatar } from "antd";
@@ -10,10 +10,16 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
+import { Context } from "../../../context";
 
 const { Item } = Menu;
 
 const SingleCourse = () => {
+  // context
+  const {
+    state: { user },
+  } = useContext(Context);
+
   const [clicked, setClicked] = useState(-1);
   const [collapsed, setCollapsed] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -28,7 +34,13 @@ const SingleCourse = () => {
   }, [slug]);
 
   const loadCourse = async () => {
-    const { data } = await axios.get(`/api/user/course/${slug}`);
+    const userId = user._id;
+    const { data } = await axios.get(
+      `https://elearn-server-wqf0.onrender.com/api/user/course/${slug}`,
+      {
+        headers: { UserId: userId },
+      }
+    );
 
     setCourse(data);
   };

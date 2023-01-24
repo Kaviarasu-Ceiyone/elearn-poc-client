@@ -5,11 +5,15 @@ import { SyncOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { Context } from "../context";
 import { useRouter } from "next/router";
+import { useCookies } from "react-cookie";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // const [cookies, setCookie] = useCookies(["token"]);
 
   // state
   const { state, dispatch } = useContext(Context);
@@ -28,17 +32,27 @@ const Login = () => {
     // console.table({ name, email, password });
     try {
       setLoading(true);
-      const { data } = await axios.post(`/api/login`, {
-        email,
-        password,
-      });
-      // console.log("LOGIN RESPONSE", data);
+      const response = await axios.post(
+        `https://elearn-server-wqf0.onrender.com/api/login`,
+        {
+          email,
+          password,
+        }
+      );
+
+      const { data } = response;
+
+      console.log(data[0]);
+
+      // setCookie("token", "abc123", { path: "/" });
+
       dispatch({
         type: "LOGIN",
         payload: data,
       });
       // save in local storage
-      window.localStorage.setItem("user", JSON.stringify(data));
+      window.localStorage.setItem("user", JSON.stringify(data[0]));
+      window.localStorage.setItem("token", JSON.stringify(data[1]));
       // redirect
       router.push("/user");
       // setLoading(false);

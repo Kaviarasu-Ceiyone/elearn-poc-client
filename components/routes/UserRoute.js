@@ -22,7 +22,9 @@ const UserRoute = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const { data } = await axios.get("/api/current-user");
+      const { data } = await axios.get(
+        "https://elearn-server-wqf0.onrender.com/api/current-user"
+      );
       //   console.log(data);
       if (data.ok) setOk(true);
     } catch (error) {

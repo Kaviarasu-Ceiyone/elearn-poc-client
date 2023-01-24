@@ -29,11 +29,14 @@ const Register = () => {
     // console.table({ name, email, password });
     try {
       setLoading(true);
-      const { data } = await axios.post(`/api/register`, {
-        name,
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        `https://elearn-server-wqf0.onrender.com/api/register`,
+        {
+          name,
+          email,
+          password,
+        }
+      );
       toast.success("Registration successful. Please Login");
       setLoading(false);
     } catch (err) {

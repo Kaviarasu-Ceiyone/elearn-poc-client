@@ -46,7 +46,7 @@ const Provider = ({ children }) => {
       if (res.status === 401 && res.config && !res.config.__isRetryRequest) {
         return new Promise((resolve, reject) => {
           axios
-            .get("/api/logout")
+            .get("https://elearn-server-wqf0.onrender.com/api/logout")
             .then((data) => {
               console.log("/401 error > logout");
               dispatch({ type: "LOGOUT" });
@@ -61,14 +61,16 @@ const Provider = ({ children }) => {
     }
   );
 
-  // useEffect(() => {
-  //   const getCsrfToken = async () => {
-  //     const { data } = await axios.get("/api/csrf-token");
-  //     console.log("CSRF", data);
-  //     axios.defaults.headers["X-CSRF-Token"] = data.getCsrfToken;
-  //   };
-  //   getCsrfToken();
-  // }, []);
+  useEffect(() => {
+    const getCsrfToken = async () => {
+      const { data } = await axios.get(
+        "https://elearn-server-wqf0.onrender.com/api/csrf-token"
+      );
+      console.log("CSRF", data);
+      axios.defaults.headers["X-CSRF-Token"] = data.getCsrfToken;
+    };
+    getCsrfToken();
+  }, []);
   return (
     <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>
   );
