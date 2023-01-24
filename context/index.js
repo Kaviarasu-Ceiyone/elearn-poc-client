@@ -46,7 +46,7 @@ const Provider = ({ children }) => {
       if (res.status === 401 && res.config && !res.config.__isRetryRequest) {
         return new Promise((resolve, reject) => {
           axios
-            .get("https://elearn-server-wqf0.onrender.com/api/logout")
+            .get("http://localhost:8000/api/logout")
             .then((data) => {
               console.log("/401 error > logout");
               dispatch({ type: "LOGOUT" });
@@ -63,9 +63,7 @@ const Provider = ({ children }) => {
 
   useEffect(() => {
     const getCsrfToken = async () => {
-      const { data } = await axios.get(
-        "https://elearn-server-wqf0.onrender.com/api/csrf-token"
-      );
+      const { data } = await axios.get("http://localhost:8000/api/csrf-token");
       console.log("CSRF", data);
       axios.defaults.headers["X-CSRF-Token"] = data.getCsrfToken;
     };

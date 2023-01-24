@@ -68,7 +68,7 @@ const SingleCourseJumbotron = ({
           </h4>
         </div>
         <div className="col-md-4">
-          {lessons[0].video && lessons[0].video.Location ? (
+          {/* {lessons[0].video && lessons[0].video.Location ? (
             <div
               onClick={() => {
                 setPreview(lessons[0].video.Location);
@@ -81,7 +81,7 @@ const SingleCourseJumbotron = ({
             <>
               <img src={image.Location} alt={name} className="img img-fluid" />
             </>
-          )}
+          )} */}
           {loading ? (
             <div className="d-flex justify-content-center">
               <LoadingOutlined className="h1 text-danger" />

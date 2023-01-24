@@ -6,7 +6,7 @@ import CourseCard from "../components/cards/CourseCard";
 
 // export async function getServerSideProps() {
 //   const { data } = await axios.get(
-//     "https://elearn-server-wqf0.onrender.com/api/courses"
+//     "http://localhost:8000/api/courses"
 //   );
 
 //   console.log(process.env.courses);
@@ -23,9 +23,7 @@ const Index = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       // const token = JSON.parse(window.localStorage.getItem("token"));
-      const { data } = await axios.get(
-        "https://elearn-server-wqf0.onrender.com/api/courses"
-      );
+      const { data } = await axios.get("http://localhost:8000/api/courses");
       setCourses(data);
     };
 

@@ -1,3 +1,4 @@
+import React from "react";
 import { useRouter } from "next/router";
 import { useEffect, useState, createElement, useContext } from "react";
 import axios from "axios";
@@ -36,7 +37,7 @@ const SingleCourse = () => {
   const loadCourse = async () => {
     const userId = user._id;
     const { data } = await axios.get(
-      `https://elearn-server-wqf0.onrender.com/api/user/course/${slug}`,
+      `http://localhost:8000/api/user/course/${slug}`,
       {
         headers: { UserId: userId },
       }
@@ -88,14 +89,13 @@ const SingleCourse = () => {
               </div>
 
               <div className="wrapper">
-                <ReactPlayer
+                {/* <ReactPlayer
                   className="player"
-                  // url="	https://d2e9oxfdxltze0.cloudfront.net/EFerpNfgNnvcspbiC0RI0.mp4"
                   url={course.lessons[clicked].video.Location}
                   width="600px"
                   height="500px"
                   controls
-                />
+                /> */}
               </div>
               <ReactMarkdown
                 source={course.lessons[clicked].content}

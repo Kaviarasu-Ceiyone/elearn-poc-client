@@ -24,7 +24,7 @@ const StudentRoute = ({ children }) => {
     const userId = user._id;
     try {
       const { data } = await axios.get(
-        "https://elearn-server-wqf0.onrender.com/api/current-user",
+        "http://localhost:8000/api/current-user",
         {
           headers: { UserId: userId },
         }
